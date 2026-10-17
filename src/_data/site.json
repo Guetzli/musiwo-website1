@@ -1,0 +1,7 @@
+{
+  "titel": "Kammermusikwoche",
+  "navigation": [
+    { "titel": "Home", "url": "/" },
+    { "titel": "Musikalische Leitung", "url": "/leitung/" }
+  ]
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if seitentitel %}{{ seitentitel }} – {% endif %}{{ site.titel }}</title>
+  <link rel="icon" href="/images/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+  <header class="kopf">
+    <a class="logo" href="/">{{ site.titel }}</a>
+    <nav>
+      {% for item in site.navigation %}
+      <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.titel }}</a>
+      {% endfor %}
+    </nav>
+  </header>
+  <main id="inhalt">
+    {{ content | safe }}
+  </main>
+</body>
+</html>

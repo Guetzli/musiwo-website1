@@ -1,0 +1,17 @@
+---
+layout: base.njk
+---
+<h1>{{ titel }}</h1>
+<p class="lead">
+  {{ termin }}<br>
+  im {% if kursort_link %}<a href="{{ kursort_link }}" target="_blank" rel="noopener">{{ kursort }}</a>{% else %}{{ kursort }}{% endif %}
+</p>
+
+{{ content | safe }}
+
+{% if anmeldeformular %}
+<section class="anmeldung">
+  <h2>Anmeldung</h2>
+  <p><a class="button" href="{{ anmeldeformular }}" target="_blank">Anmeldeformular (PDF)</a></p>
+</section>
+{% endif %}
