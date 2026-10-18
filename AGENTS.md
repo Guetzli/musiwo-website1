@@ -2,6 +2,8 @@
 
 Neue Website für **musiwo.ch**. Stand: 2026-10-17 – Prototyp lokal lauffähig (`npm start` → http://localhost:8080).
 
+Repo: https://github.com/Guetzli/musiwo-website1 (privat). CMS: https://app.pagescms.org
+
 ## Projektstruktur
 - `content/startseite.md` – Startseite: Felder (Titel, Termin, Kursort, Anmelde-PDF) + gesamter Text als Body.
 - `content/leitung/*.md` – eine Datei pro Leitungsperson (CRUD via Pages CMS), Felder: name,
@@ -20,7 +22,7 @@ Neue Website für **musiwo.ch**. Stand: 2026-10-17 – Prototyp lokal lauffähig
 - Laien dürfen **keine Strukturänderungen** machen (Menü, Layout, Seitentypen) – nur banale Inhaltspflege,
   z. B. neue Leitungsperson hinzufügen, Inhalt der Startseite jährlich aktualisieren.
 - Keine aktiven Serverkomponenten (kein PHP/DB).
-- Entwicklung in einem GitHub-Repo (**MusiwoWebsite**) mit Deployment; Deployments dürfen
+- Entwicklung in einem GitHub-Repo (**musiwo-website1**) mit Deployment; Deployments dürfen
   **vorhandene Inhalte nicht überschreiben**.
 
 ## Entscheidungen
