@@ -17,6 +17,15 @@ export default function (eleventyConfig) {
       .sort((a, b) => (a.data.reihenfolge ?? 0) - (b.data.reihenfolge ?? 0))
   );
 
+  // Rich-Text in Abschnitte (je ab einer Zwischenüberschrift) aufteilen, damit sie als Karten erscheinen
+  eleventyConfig.addFilter("abschnitte", (html) =>
+    html
+      .split(/(?=<h2)/)
+      .filter((s) => s.trim())
+      .map((s) => `<section class="abschnitt">${s}</section>`)
+      .join("\n")
+  );
+
   return {
     dir: {
       input: ".",

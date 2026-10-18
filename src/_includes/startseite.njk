@@ -1,17 +1,37 @@
 ---
 layout: base.njk
 ---
-<h1>{{ titel }}</h1>
-<p class="lead">
-  {{ termin }}<br>
-  im {% if kursort_link %}<a href="{{ kursort_link }}" target="_blank" rel="noopener">{{ kursort }}</a>{% else %}{{ kursort }}{% endif %}
-</p>
+<section class="intro">
+  <div class="container intro-inner">
+    <div class="intro-text">
+      <p class="kicker">{{ kurs.ausgabe }}</p>
+      <h1 class="intro-titel">{{ untertitel or titel }}</h1>
+      <p class="intro-buttons">
+        <a class="button" href="/anmeldung/">Jetzt anmelden</a>
+        {% if kurs.anmeldeformular %}<a class="button button-sekundaer" href="{{ kurs.anmeldeformular }}" target="_blank">Formular (PDF)</a>{% endif %}
+      </p>
+    </div>
 
-{{ content | safe }}
+    <aside class="ticket" aria-label="Auf einen Blick">
+      <p class="ticket-kopf">{{ kurs.ausgabe }}</p>
+      <dl>
+        <div><dt>Termin</dt><dd>{{ kurs.termin }}</dd></div>
+        <div><dt>Ort</dt><dd><a href="{{ kurs.kursort_link }}" target="_blank" rel="noopener">{{ kurs.kursort }}</a></dd></div>
+        <div><dt>Anmeldeschluss</dt><dd>{{ kurs.anmeldeschluss }}</dd></div>
+      </dl>
+    </aside>
 
-{% if anmeldeformular %}
-<section class="anmeldung">
-  <h2>Anmeldung</h2>
-  <p><a class="button" href="{{ anmeldeformular }}" target="_blank">Anmeldeformular (PDF)</a></p>
+    {% if titelbild %}
+    <figure class="intro-bild">
+      <img src="{{ titelbild }}" alt="">
+    </figure>
+    {% endif %}
+  </div>
 </section>
-{% endif %}
+
+<div class="container">
+  <p class="ornament" aria-hidden="true">✦</p>
+  <div class="abschnitte">
+    {{ content | abschnitte | safe }}
+  </div>
+</div>

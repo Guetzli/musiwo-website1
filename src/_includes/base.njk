@@ -6,19 +6,31 @@
   <title>{% if seitentitel %}{{ seitentitel }} – {% endif %}{{ site.titel }}</title>
   <link rel="icon" href="/images/favicon.png">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/theme.css">
 </head>
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
   <header class="kopf">
-    <a class="logo" href="/">{{ site.titel }}</a>
-    <nav>
-      {% for item in site.navigation %}
-      <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.titel }}</a>
-      {% endfor %}
-    </nav>
+    <div class="container kopf-inner">
+      <a class="logo" href="/">
+        {{ site.titel }}
+      </a>
+      <nav>
+        {% for item in site.navigation %}
+        <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.titel }}</a>
+        {% endfor %}
+      </nav>
+    </div>
   </header>
   <main id="inhalt">
     {{ content | safe }}
   </main>
+  <footer class="fuss">
+    <div class="container fuss-inner">
+      <div><h2>{{ kurs.ausgabe }}</h2><p>{{ kurs.termin }}</p></div>
+      <div><h2>Kursort</h2><p><a href="{{ kurs.kursort_link }}" target="_blank" rel="noopener">{{ kurs.kursort }}</a></p></div>
+      <div><h2>Kontakt</h2><p><a href="mailto:{{ kurs.kontakt_email }}">{{ kurs.kontakt_email }}</a></p></div>
+    </div>
+  </footer>
 </body>
 </html>

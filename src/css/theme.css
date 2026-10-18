@@ -1,0 +1,56 @@
+/* Design „Programmheft“: Papier, Tintenblau, Apricot; Eintrittskarte; Abschnitte als Sätze I., II., … */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap");
+
+:root {
+  --text: #1f2a44;
+  --muted: #5d6478;
+  --primaer: #faf6ee;
+  --primaer-text: #1f2a44;
+  --akzent: #c8602a;
+  --hell: #f1e9da;
+  --bg: #faf6ee;
+  --line: #e4d9c6;
+  --schrift: "Inter", system-ui, sans-serif;
+  --schrift-titel: "Fraunces", Georgia, serif;
+  --gewicht-titel: 600;
+  --radius: 4px;
+}
+
+/* Kopf wie der Rand eines Programmhefts: doppelte Linie */
+.kopf { border-bottom: 3px double var(--text); }
+.kopf nav a { border-radius: 0; border-bottom: 2px solid transparent; }
+.kopf nav a:hover { background: none; border-bottom-color: var(--line); }
+.kopf nav a[aria-current="page"] { background: none; color: var(--text); border-bottom-color: var(--akzent); }
+.logo { font-style: italic; font-weight: 500; font-size: 1.5rem; }
+
+.intro-titel { font-weight: 500; font-size: clamp(2rem, 3.6vw, 3rem); }
+.intro-titel::after { content: ""; display: block; width: 3rem; height: 3px; margin-top: 1rem; background: var(--akzent); }
+.intro-bild img { aspect-ratio: 6 / 1; min-height: 9rem; object-position: center 68%; }
+
+/* Eintrittskarte mit Perforation */
+.ticket {
+  position: relative; background: #fff; border: 1px solid var(--line); border-left: 2px dashed var(--line);
+  padding-left: 2.25rem; transform: rotate(-1.2deg); box-shadow: 0 10px 30px rgba(31,42,68,.08);
+}
+.ticket::before, .ticket::after {
+  content: ""; position: absolute; left: -.8rem; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--bg); border: 1px solid var(--line);
+}
+.ticket::before { top: -.7rem; }
+.ticket::after { bottom: -.7rem; }
+.ticket-kopf { font-family: var(--schrift-titel); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.1rem; font-weight: 500; }
+.ticket dd { font-family: var(--schrift-titel); font-weight: 500; font-size: 1.2rem; }
+
+/* Abschnitte als Sätze */
+.abschnitt h2::before { content: counter(satz, upper-roman) ". "; color: var(--akzent); font-style: italic; }
+.abschnitt h2 { font-weight: 500; font-size: 1.5rem; }
+
+.person { background: #fff; border: 1px solid var(--line); }
+.person img { border-radius: var(--radius); aspect-ratio: 4 / 5; }
+.fuss { background: var(--text); }
+
+.ticket dl { margin-bottom: 0; }
+
+/* Ornament zwischen Kopf und Text wie im gedruckten Programm */
+.ornament { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0 0; color: var(--akzent); font-size: 1.1rem; }
+.ornament::before, .ornament::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.abschnitte { padding-top: 1.5rem; }

@@ -14,16 +14,16 @@ media:
     categories: [document]
 
 content:
-  - name: startseite
-    label: Startseite
+  - name: kurs
+    label: Kursdaten (jährlich)
     type: file
-    path: content/startseite.md
-    format: yaml-frontmatter
+    path: content/kurs.json
+    format: json
     fields:
-      - name: titel
-        label: Titel
+      - name: ausgabe
+        label: Ausgabe
         type: string
-        required: true
+        description: "z. B. 27. Kammermusikwoche"
       - name: termin
         label: Termin
         type: string
@@ -35,11 +35,38 @@ content:
       - name: kursort_link
         label: Link zum Kursort
         type: string
+      - name: anmeldeschluss
+        label: Anmeldeschluss
+        type: string
+        description: "z. B. 30. März 2026"
       - name: anmeldeformular
         label: Anmeldeformular (PDF)
         type: file
         options:
           media: dokumente
+      - name: kontakt_email
+        label: E-Mail für Anmeldungen und Kontakt
+        type: string
+        required: true
+
+  - name: startseite
+    label: Startseite
+    type: file
+    path: content/startseite.md
+    format: yaml-frontmatter
+    fields:
+      - name: titel
+        label: Titel
+        type: string
+        required: true
+      - name: untertitel
+        label: Kernaussage (grosse Schrift oben)
+        type: text
+      - name: titelbild
+        label: Titelbild
+        type: image
+        options:
+          media: bilder
       - name: body
         label: Text
         type: rich-text
@@ -80,3 +107,57 @@ content:
       - name: body
         label: Kurzbiografie
         type: rich-text
+
+  - name: impressionen
+    label: Impressionen
+    type: file
+    path: content/impressionen.md
+    format: yaml-frontmatter
+    fields:
+      - name: titel
+        label: Titel
+        type: string
+        required: true
+      - name: body
+        label: Einleitungstext
+        type: rich-text
+      - name: bilder
+        label: Fotos
+        type: object
+        list: true
+        fields:
+          - name: bild
+            label: Foto
+            type: image
+            options:
+              media: bilder
+              path: images/impressionen
+          - name: text
+            label: Bildlegende
+            type: string
+
+  - name: anmeldung
+    label: Anmeldung
+    type: file
+    path: content/anmeldung.md
+    format: yaml-frontmatter
+    fields:
+      - name: titel
+        label: Titel
+        type: string
+        required: true
+      - name: body
+        label: Text über dem Formular (Bedingungen, Kontoangaben)
+        type: rich-text
+      - name: zimmer
+        label: Zimmerkategorien
+        type: object
+        list: true
+        fields:
+          - name: bezeichnung
+            label: Bezeichnung
+            type: string
+            required: true
+          - name: preis
+            label: Preis
+            type: string

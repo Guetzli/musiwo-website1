@@ -1,0 +1,79 @@
+---
+layout: base.njk
+---
+<div class="container">
+  <h1 class="seitentitel">{{ titel }}</h1>
+  <p class="lead">{{ kurs.ausgabe }} · {{ kurs.termin }} · {{ kurs.kursort }}<br>
+    Anmeldeschluss: <strong>{{ kurs.anmeldeschluss }}</strong></p>
+  <div class="text">{{ content | safe }}</div>
+
+  <form class="formular" id="anmeldeformular"
+        {% if site.formular.action %}action="{{ site.formular.action }}" method="post"{% endif %}
+        data-empfaenger="{{ kurs.kontakt_email }}" data-betreff="Anmeldung {{ kurs.ausgabe }}">
+
+    <fieldset>
+      <legend>Persönliche Angaben</legend>
+      <div class="felder zwei">
+        <label>Vorname <input name="Vorname" required autocomplete="given-name"></label>
+        <label>Name <input name="Name" required autocomplete="family-name"></label>
+        <label>Geburtsdatum <input name="Geburtsdatum" type="date"></label>
+        <label>Telefon <input name="Telefon" type="tel" required autocomplete="tel"></label>
+        <label class="breit">E-Mail <input name="E-Mail" type="email" required autocomplete="email"></label>
+        <label>Adresse <input name="Adresse" required autocomplete="street-address"></label>
+        <label>PLZ/Ort <input name="PLZ/Ort" required></label>
+        <label class="breit">Instrument <input name="Instrument" required></label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ensembles</legend>
+      <p class="feldhinweis">Werke bitte genau angeben (Komponist, Titel, nähere Bezeichnung) sowie alle Mitspielenden mit Vor- und Nachnamen und Instrument.</p>
+      {% for n in [1, 2, 3] %}
+      <div class="ensemble">
+        <h3>{{ n }}. Ensemble</h3>
+        <label>Werk <input name="Ensemble {{ n }} – Werk"{% if n == 1 %} required{% endif %}></label>
+        <label>Ich spiele zusammen mit <textarea name="Ensemble {{ n }} – Mitspielende" rows="2"></textarea></label>
+      </div>
+      {% endfor %}
+      <label>Werk vom Vorjahr mit folgender Lehrkraft weiterarbeiten (optional)
+        <input name="Weiterarbeit mit Lehrkraft"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Unterkunft (Vollpension, 6 Tage, pro Person)</legend>
+      <div class="optionen">
+        {% for z in zimmer %}
+        <label class="option">
+          <input type="radio" name="Unterkunft" value="{{ z.bezeichnung }} ({{ z.preis }})" required>
+          <span>{{ z.bezeichnung }}</span><span class="preis">{{ z.preis }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <label>Ich teile das Zimmer mit <input name="Zimmer teilen mit"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Bemerkungen</legend>
+      <label>Wünsche, Diät usw. <textarea name="Bemerkungen" rows="3"></textarea></label>
+      <label class="check"><input type="checkbox" name="Bestätigung" value="ja" required>
+        Ich melde mich verbindlich an und überweise das Kursgeld.</label>
+    </fieldset>
+
+    <button class="button button-gross" type="submit">Anmeldung absenden</button>
+    {% if not site.formular.action %}
+    <p class="feldhinweis">Beim Absenden öffnet sich Ihr E-Mail-Programm mit der ausgefüllten Anmeldung.</p>
+    {% endif %}
+  </form>
+</div>
+
+{% if not site.formular.action %}
+<script>
+  // Ohne Formulardienst: Anmeldung als vorausgefüllte E-Mail verschicken
+  document.getElementById("anmeldeformular").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const zeilen = [...new FormData(f)].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
+    location.href = `mailto:${f.dataset.empfaenger}?subject=${encodeURIComponent(f.dataset.betreff)}&body=${encodeURIComponent(zeilen.join("\n"))}`;
+  });
+</script>
+{% endif %}

@@ -1,9 +1,7 @@
 ---
 titel: Kammermusikwoche
-termin: So 4. bis Sa 10. Oktober 2026
-kursort: Bildungszentrum Matt in Schwarzenberg
-kursort_link: https://www.bzmatt.ch
-anmeldeformular: /dokumente/Anmeldeformular.pdf
+titelbild: /images/titelbild.jpeg
+untertitel: Eine Woche Kammermusik für Amateurinnen und Amateure.
 ---
 
 ## Teilnehmerinnen/Teilnehmer

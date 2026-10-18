@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+<div class="container">
+  <h1 class="seitentitel">{{ titel }}</h1>
+  <div class="text">{{ content | safe }}</div>
+  {% if bilder and bilder.length %}
+  <div class="galerie">
+    {% for b in bilder %}
+    <figure>
+      <a href="{{ b.bild }}" target="_blank"><img src="{{ b.bild }}" alt="{{ b.text }}" loading="lazy"></a>
+      {% if b.text %}<figcaption>{{ b.text }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="hinweis">Fotos folgen.</p>
+  {% endif %}
+</div>

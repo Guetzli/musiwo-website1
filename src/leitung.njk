@@ -3,13 +3,17 @@ layout: base.njk
 permalink: /leitung/
 seitentitel: Musikalische Leitung
 ---
-<h1>Musikalische Leitung</h1>
-{% for person in collections.leitungSichtbar %}
-<article class="person">
-  <img src="{{ person.data.foto }}" alt="Porträt {{ person.data.name }}" loading="lazy">
-  <div>
-    <h2>{{ person.data.name }}</h2>
-    {{ person.content | safe }}
+<div class="container">
+  <h1 class="seitentitel">Musikalische Leitung</h1>
+  <div class="personen">
+    {% for person in collections.leitungSichtbar %}
+    <article class="person">
+      <img src="{{ person.data.foto }}" alt="Porträt {{ person.data.name }}" loading="lazy">
+      <div>
+        <h2>{{ person.data.name }}</h2>
+        {{ person.content | safe }}
+      </div>
+    </article>
+    {% endfor %}
   </div>
-</article>
-{% endfor %}
+</div>

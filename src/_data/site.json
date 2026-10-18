@@ -2,6 +2,12 @@
   "titel": "Kammermusikwoche",
   "navigation": [
     { "titel": "Home", "url": "/" },
-    { "titel": "Musikalische Leitung", "url": "/leitung/" }
-  ]
+    { "titel": "Musikalische Leitung", "url": "/leitung/" },
+    { "titel": "Impressionen", "url": "/impressionen/" },
+    { "titel": "Anmeldung", "url": "/anmeldung/" }
+  ],
+  "formular": {
+    "action": "",
+    "hinweis": "Leer = Anmeldung wird per E-Mail-Programm verschickt. Sonst URL eines Formulardienstes (z. B. Web3Forms)."
+  }
 }
