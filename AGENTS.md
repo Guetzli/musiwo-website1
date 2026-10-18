@@ -13,7 +13,7 @@ Repo: https://github.com/Guetzli/musiwo-website1 (privat). CMS: https://app.page
 - `content/leitung/*.md` – eine Datei pro Leitungsperson (CRUD via Pages CMS), Felder: name,
   foto, anzeigen, reihenfolge, Body = Kurzbio.
 - `src/` – Layouts, Leitungsseite, CSS, Navigation (`src/_data/site.json`) – nur Entwickler.
-- `images/`, `dokumente/` – Medienordner (Pages CMS `media`).
+- `images/`, `dokumente/` – Medienordner (Pages CMS `media`). `fonts/` – Schriftdateien (nur Entwickler).
 - `.pages.yml` – was Laien bearbeiten dürfen.
 - Design „Programmheft“ (gewählt 2026-10-18): `src/css/style.css` (Struktur) + `src/css/theme.css`.
   Screenshots in `entwuerfe/` (nicht im Git).
@@ -61,7 +61,7 @@ Repo: https://github.com/Guetzli/musiwo-website1 (privat). CMS: https://app.page
 - Deployment auf Infomaniak zurückgestellt (geht vermutlich nicht); alternatives Hosting klärt der User.
 - Anmeldeformular: ohne Formulardienst öffnet es das E-Mail-Programm (mailto). Entscheid offen, ob ein
   Formulardienst (z. B. Web3Forms/Formspree) genutzt wird → `site.formular.action` in `src/_data/site.json`.
-- Design: kompakter Kopf (User mag keine hohen Header), frisch, Vorbild fagottiade.ch. Gewählt: „Programmheft“ (Eintrittskarte, Sätze I., II. …), Titelbild nur als flaches Band. Google Fonts vor Livegang selbst hosten (Datenschutz).
+- Design: kompakter Kopf (User mag keine hohen Header), frisch, Vorbild fagottiade.ch. Gewählt: „Programmheft“ (Eintrittskarte, Sätze I., II. …), Titelbild nur als flaches Band. Schriften (Fraunces, Inter) selbst gehostet in `fonts/` (keine Google-Anfragen).
 
 ## Offene Punkte / nächste Schritte
 1. ~~Bestehende musiwo.ch analysieren~~ (erledigt, siehe oben).

@@ -3,6 +3,7 @@
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("dokumente");
+  eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
 
   eleventyConfig.ignores.add("AGENTS.md");
