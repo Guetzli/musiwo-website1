@@ -6,6 +6,9 @@ export default function (eleventyConfig) {
   // Setzt pathPrefix vor alle Pfade, die mit "/" beginnen – auch in Texten aus dem CMS
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
+  // Versionsnummer pro Build, an CSS-Links angehängt: Browser laden nach einem Deployment sofort das neue CSS
+  eleventyConfig.addGlobalData("version", Date.now().toString(36));
+
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("dokumente");
   eleventyConfig.addPassthroughCopy("fonts");
