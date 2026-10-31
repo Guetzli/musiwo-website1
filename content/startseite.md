@@ -28,5 +28,4 @@ Nehmen Sie doch so bald wie möglich Kontakt auf mit der Kursleitung:
 Heckenweg 25, 3150 Schwarzenburg
 
 **Telefon:** [+41 79 598 71 65](tel:+41795987165)  
-**E-Mail:** [susireinhard@bluewin.ch](mailto:susireinhard@bluewin.ch)  
-**Website:** [www.musiwo.ch](https://www.musiwo.ch)
+**E-Mail:** [susireinhard@bluewin.ch](mailto:susireinhard@bluewin.ch)

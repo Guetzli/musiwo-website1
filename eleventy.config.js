@@ -1,6 +1,11 @@
 // Inhalte (content/) werden von Laien via Pages CMS gepflegt,
 // Struktur und Layout (src/) nur von Entwicklern.
+import { HtmlBasePlugin } from "@11ty/eleventy";
+
 export default function (eleventyConfig) {
+  // Setzt pathPrefix vor alle Pfade, die mit "/" beginnen – auch in Texten aus dem CMS
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("dokumente");
   eleventyConfig.addPassthroughCopy("fonts");

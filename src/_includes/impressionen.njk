@@ -9,7 +9,7 @@ layout: base.njk
     {% for b in bilder %}
     <figure>
       <button type="button" class="galerie-bild" data-index="{{ loop.index0 }}" aria-label="Bild {{ loop.index }} von {{ bilder.length }} vergrössern">
-        <img src="{{ b.bild | url }}" alt="{{ b.text }}" loading="lazy">
+        <img src="{{ b.bild }}" alt="{{ b.text }}" loading="lazy">
       </button>
       {% if b.text %}<figcaption>{{ b.text }}</figcaption>{% endif %}
     </figure>

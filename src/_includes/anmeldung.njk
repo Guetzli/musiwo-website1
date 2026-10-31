@@ -8,7 +8,7 @@ layout: base.njk
   <div class="text">{{ content | safe }}</div>
 
   {% if kurs.anmeldeformular %}
-  <p><a class="button button-sekundaer" href="{{ kurs.anmeldeformular | url }}" download>Anmeldeformular (PDF)</a></p>
+  <p><a class="button button-sekundaer" href="{{ kurs.anmeldeformular }}" download>Anmeldeformular (PDF)</a></p>
   {% endif %}
 
   <form class="formular" id="anmeldeformular"

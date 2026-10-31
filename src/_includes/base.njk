@@ -4,24 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if seitentitel %}{{ seitentitel }} – {% endif %}{{ site.titel }}</title>
-  <link rel="icon" href="{{ '/images/favicon.png' | url }}">
-  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-  <link rel="stylesheet" href="{{ '/css/theme.css' | url }}">
+  <link rel="icon" href="{{ '/images/favicon.png' }}">
+  <link rel="stylesheet" href="{{ '/css/style.css' }}">
+  <link rel="stylesheet" href="{{ '/css/theme.css' }}">
 </head>
 <body>
   <a class="skip" href="#inhalt">Zum Inhalt springen</a>
   <header class="kopf">
     <div class="container kopf-inner">
-      <a class="logo" href="{{ '/' | url }}">
+      <a class="logo" href="{{ '/' }}">
         {{ site.titel }}
       </a>
-      <nav>
+      <button type="button" class="menu-knopf" aria-expanded="false" aria-controls="hauptmenu" hidden>
+        <span class="menu-icon" aria-hidden="true"></span><span class="menu-text">Menü</span>
+      </button>
+      <nav id="hauptmenu" aria-label="Hauptmenü">
         {% for item in site.navigation %}
-        <a href="{{ item.url | url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.titel }}</a>
+        <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.titel }}</a>
         {% endfor %}
       </nav>
     </div>
   </header>
+  <script>
+    // Hamburger-Menü auf schmalen Bildschirmen (ohne JavaScript bleibt das Menü einfach sichtbar)
+    (function () {
+      const kopf = document.querySelector(".kopf");
+      const knopf = kopf.querySelector(".menu-knopf");
+      kopf.classList.add("mit-js");
+      knopf.hidden = false;
+      knopf.addEventListener("click", () => {
+        const offen = knopf.getAttribute("aria-expanded") === "true";
+        knopf.setAttribute("aria-expanded", String(!offen));
+        kopf.classList.toggle("offen", !offen);
+      });
+    })();
+  </script>
   <main id="inhalt">
     {{ content | safe }}
   </main>

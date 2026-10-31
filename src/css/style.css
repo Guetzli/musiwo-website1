@@ -48,6 +48,17 @@ main > .container { padding-bottom: 4rem; }
 .kopf nav a:hover { background: rgba(255,255,255,.15); }
 .kopf nav a[aria-current="page"] { background: var(--primaer-text); color: var(--primaer); }
 
+/* Hamburger-Knopf: nur auf schmalen Bildschirmen sichtbar */
+.menu-knopf { display: none; align-items: center; gap: .5rem; padding: .45rem .6rem; border: 1px solid currentColor; border-radius: var(--radius); background: none; color: inherit; font: inherit; font-weight: 500; cursor: pointer; }
+.menu-icon, .menu-icon::before, .menu-icon::after { display: block; width: 1.2rem; height: 2px; background: currentColor; transition: transform .2s, opacity .2s; }
+.menu-icon { position: relative; }
+.menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+.menu-icon::before { top: -6px; }
+.menu-icon::after { top: 6px; }
+.kopf.offen .menu-icon { background: transparent; }
+.kopf.offen .menu-icon::before { transform: translateY(6px) rotate(45deg); }
+.kopf.offen .menu-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
 /* Startseite: Intro. Anordnung (grid-template-areas) bestimmt das Theme */
 .intro-inner {
   display: grid; gap: 2rem; align-items: center; padding-top: 2.5rem; padding-bottom: 2.5rem;
@@ -155,11 +166,20 @@ main > .container { padding-bottom: 4rem; }
 @media (max-width: 52rem) {
   .intro-inner { grid-template-columns: 1fr !important; grid-template-areas: "text" "ticket" "bild" !important; }
   .personen { grid-template-columns: 1fr; }
+  /* Foto links, Text fliesst rechts daneben und darunter weiter */
+  .person { display: flow-root; }
+  .person img { float: left; width: 7rem; margin: 0 1.25rem .75rem 0; }
 }
 @media (max-width: 40rem) {
   .kopf { position: static; }
   .kopf-inner { padding-top: .6rem; padding-bottom: .6rem; }
   .kopf nav a { padding: .3rem .6rem; font-size: .92rem; }
-  .person { grid-template-columns: 5rem 1fr; }
+  .kopf-inner { flex-wrap: wrap; gap: .5rem 1rem; }
+  .kopf.mit-js .menu-knopf:not([hidden]) { display: inline-flex; justify-content: center; margin-left: auto; width: 2.75rem; height: 2.75rem; padding: 0; }
+  .menu-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .kopf.mit-js nav { display: none; flex-basis: 100%; flex-direction: column; gap: 0; padding-bottom: .5rem; }
+  .kopf.mit-js.offen nav { display: flex; }
+  .kopf.mit-js nav a { padding: .7rem .25rem; font-size: 1rem; }
+  .person img { width: 5.5rem; margin-right: 1rem; }
   .felder.zwei { grid-template-columns: 1fr; }
 }

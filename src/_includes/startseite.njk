@@ -7,7 +7,7 @@ layout: base.njk
       <p class="kicker">{{ kurs.ausgabe }}</p>
       <h1 class="intro-titel">{{ untertitel or titel }}</h1>
       <p class="intro-buttons">
-        <a class="button" href="{{ '/anmeldung/' | url }}">Zur Anmeldung</a>
+        <a class="button" href="{{ '/anmeldung/' }}">Zur Anmeldung</a>
       </p>
     </div>
 
@@ -22,7 +22,7 @@ layout: base.njk
 
     {% if titelbild %}
     <figure class="intro-bild">
-      <img src="{{ titelbild | url }}" alt="">
+      <img src="{{ titelbild }}" alt="">
     </figure>
     {% endif %}
   </div>
