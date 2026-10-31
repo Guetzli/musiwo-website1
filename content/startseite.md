@@ -1,5 +1,5 @@
 ---
-titel: Kammermusikwoche
+titel: 28. Kammermusikwoche
 titelbild: /images/titelbild.jpeg
 untertitel: Eine Woche Kammermusik für Amateurinnen und Amateure.
 ---
@@ -20,7 +20,13 @@ Bestehende oder spontan zusammengesetzte Kammermusik-Gruppen ab drei Personen we
 
 Die Kursgebühr beträgt 580.- Franken. Die Unterkunft mit Vollpension kostet je nach Zimmerkategorie zwischen 720.- und 1380.- Franken (sechs Übernachtungen). Inbegriffen ist auch die Miete der Proberäume. Die Kosten für die Noten werden von den Teilnehmenden übernommen.
 
-## Kursleitung und Informationen
+## Interessiert?
 
-Susanne Reinhard, Heckenweg 25, 3150 Schwarzenburg  
-[+41 79 598 71 65](tel:+41795987165) · [susireinhard@bluewin.ch](mailto:susireinhard@bluewin.ch)
+Nehmen Sie doch so bald wie möglich Kontakt auf mit der Kursleitung:
+
+**Susanne Reinhard**  
+Heckenweg 25, 3150 Schwarzenburg
+
+**Telefon:** [+41 79 598 71 65](tel:+41795987165)  
+**E-Mail:** [susireinhard@bluewin.ch](mailto:susireinhard@bluewin.ch)  
+**Website:** [www.musiwo.ch](https://www.musiwo.ch)

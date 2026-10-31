@@ -7,8 +7,7 @@ layout: base.njk
       <p class="kicker">{{ kurs.ausgabe }}</p>
       <h1 class="intro-titel">{{ untertitel or titel }}</h1>
       <p class="intro-buttons">
-        <a class="button" href="/anmeldung/">Jetzt anmelden</a>
-        {% if kurs.anmeldeformular %}<a class="button button-sekundaer" href="{{ kurs.anmeldeformular }}" target="_blank">Formular (PDF)</a>{% endif %}
+        <a class="button" href="{{ '/anmeldung/' | url }}">Zur Anmeldung</a>
       </p>
     </div>
 
@@ -23,7 +22,7 @@ layout: base.njk
 
     {% if titelbild %}
     <figure class="intro-bild">
-      <img src="{{ titelbild }}" alt="">
+      <img src="{{ titelbild | url }}" alt="">
     </figure>
     {% endif %}
   </div>

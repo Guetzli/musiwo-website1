@@ -8,7 +8,7 @@ seitentitel: Musikalische Leitung
   <div class="personen">
     {% for person in collections.leitungSichtbar %}
     <article class="person">
-      <img src="{{ person.data.foto }}" alt="Porträt {{ person.data.name }}" loading="lazy">
+      <img src="{{ person.data.foto | url }}" alt="Porträt {{ person.data.name }}" loading="lazy">
       <div>
         <h2>{{ person.data.name }}</h2>
         {{ person.content | safe }}

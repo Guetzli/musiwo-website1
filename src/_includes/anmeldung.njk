@@ -7,6 +7,10 @@ layout: base.njk
     Anmeldeschluss: <strong>{{ kurs.anmeldeschluss }}</strong></p>
   <div class="text">{{ content | safe }}</div>
 
+  {% if kurs.anmeldeformular %}
+  <p><a class="button button-sekundaer" href="{{ kurs.anmeldeformular | url }}" download>Anmeldeformular (PDF)</a></p>
+  {% endif %}
+
   <form class="formular" id="anmeldeformular"
         {% if site.formular.action %}action="{{ site.formular.action }}" method="post"{% endif %}
         data-empfaenger="{{ kurs.kontakt_email }}" data-betreff="Anmeldung {{ kurs.ausgabe }}">

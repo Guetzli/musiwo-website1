@@ -8,11 +8,65 @@ layout: base.njk
   <div class="galerie">
     {% for b in bilder %}
     <figure>
-      <a href="{{ b.bild }}" target="_blank"><img src="{{ b.bild }}" alt="{{ b.text }}" loading="lazy"></a>
+      <button type="button" class="galerie-bild" data-index="{{ loop.index0 }}" aria-label="Bild {{ loop.index }} von {{ bilder.length }} vergrössern">
+        <img src="{{ b.bild | url }}" alt="{{ b.text }}" loading="lazy">
+      </button>
       {% if b.text %}<figcaption>{{ b.text }}</figcaption>{% endif %}
     </figure>
     {% endfor %}
   </div>
+  <dialog class="lightbox" aria-label="Bildansicht">
+    <button type="button" class="lb-zu" aria-label="Schliessen">×</button>
+    <button type="button" class="lb-zurueck" aria-label="Vorheriges Bild">‹</button>
+    <figure>
+      <img src="" alt="">
+      <figcaption></figcaption>
+    </figure>
+    <button type="button" class="lb-weiter" aria-label="Nächstes Bild">›</button>
+    <p class="lb-zaehler" aria-live="polite"></p>
+  </dialog>
+  <script>
+    (function () {
+      const galerie = document.querySelector(".galerie");
+      const dialog = document.querySelector(".lightbox");
+      const bilder = [...galerie.querySelectorAll(".galerie-bild")];
+      const bild = dialog.querySelector("img");
+      const beschriftung = dialog.querySelector("figcaption");
+      const zaehler = dialog.querySelector(".lb-zaehler");
+      let aktuell = 0;
+
+      function zeige(n) {
+        aktuell = (n + bilder.length) % bilder.length;
+        const quelle = bilder[aktuell].querySelector("img");
+        bild.src = quelle.src;
+        bild.alt = quelle.alt;
+        beschriftung.textContent = quelle.alt;
+        zaehler.textContent = (aktuell + 1) + " / " + bilder.length;
+      }
+
+      bilder.forEach((knopf, n) => knopf.addEventListener("click", () => {
+        zeige(n);
+        dialog.showModal();
+      }));
+      dialog.querySelector(".lb-zu").addEventListener("click", () => dialog.close());
+      dialog.querySelector(".lb-zurueck").addEventListener("click", () => zeige(aktuell - 1));
+      dialog.querySelector(".lb-weiter").addEventListener("click", () => zeige(aktuell + 1));
+      dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
+      dialog.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") zeige(aktuell + 1);
+        if (e.key === "ArrowLeft") zeige(aktuell - 1);
+      });
+
+      let startX = null;
+      dialog.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+      dialog.addEventListener("touchend", (e) => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) zeige(dx < 0 ? aktuell + 1 : aktuell - 1);
+        startX = null;
+      }, { passive: true });
+    })();
+  </script>
   {% else %}
   <p class="hinweis">Fotos folgen.</p>
   {% endif %}

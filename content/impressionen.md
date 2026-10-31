@@ -1,12 +1,16 @@
 ---
 titel: Impressionen
 bilder:
-  - bild: /images/impressionen/2023-ensembleprobe.jpeg
-    text: Ensembleprobe, Kammermusikwoche 2023
-  - bild: /images/impressionen/2023-probe.jpeg
-    text: Probe am Vormittag, Kammermusikwoche 2023
-  - bild: /images/impressionen/2023-abend.jpeg
-    text: Gemeinsamer Abend, Kammermusikwoche 2023
+  - bild: /images/impressionen/2026-landschaft.jpeg
+    text: Landschaft rund um Schwarzenberg
+  - bild: /images/impressionen/2026-gruppenbild.jpeg
+    text: Klarinettensextett
+  - bild: /images/impressionen/2026-brunnen.jpeg
+    text: Kneippen im Wassertretbecken, Kammermusikwoche 2026
+  - bild: /images/impressionen/2026-speisesaal-kuechenteam.jpeg
+    text: Susanne Reinhard bei der Verdankung des Personals
+  - bild: /images/impressionen/2026-abend-violinen.jpeg
+    text: Jazz-Session in der Bar
 ---
 
 Eindrücke aus vergangenen Kammermusikwochen im Bildungszentrum Matt.

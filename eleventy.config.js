@@ -28,6 +28,8 @@ export default function (eleventyConfig) {
   );
 
   return {
+    // Auf GitHub Pages liegt die Seite unter /musiwo-website1/, auf musiwo.ch unter /
+    pathPrefix: process.env.PATH_PREFIX || "/",
     dir: {
       input: ".",
       includes: "src/_includes",
