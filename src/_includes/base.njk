@@ -32,11 +32,14 @@
       const knopf = kopf.querySelector(".menu-knopf");
       kopf.classList.add("mit-js");
       knopf.hidden = false;
-      knopf.addEventListener("click", () => {
-        const offen = knopf.getAttribute("aria-expanded") === "true";
-        knopf.setAttribute("aria-expanded", String(!offen));
-        kopf.classList.toggle("offen", !offen);
-      });
+      function setze(offen) {
+        knopf.setAttribute("aria-expanded", String(offen));
+        kopf.classList.toggle("offen", offen);
+      }
+      knopf.addEventListener("click", () => setze(knopf.getAttribute("aria-expanded") !== "true"));
+      // Schliessen bei Tipp ausserhalb oder Escape
+      document.addEventListener("click", (e) => { if (!kopf.contains(e.target)) setze(false); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") { setze(false); } });
     })();
   </script>
   <main id="inhalt">

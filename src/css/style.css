@@ -176,9 +176,18 @@ main > .container { padding-bottom: 4rem; }
   .kopf-inner { flex-wrap: wrap; gap: .5rem 1rem; }
   .kopf.mit-js .menu-knopf:not([hidden]) { display: inline-flex; justify-content: center; margin-left: auto; width: 2.75rem; height: 2.75rem; padding: 0; }
   .menu-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .kopf.mit-js nav { display: none; flex-basis: 100%; flex-direction: column; gap: 0; padding-bottom: .5rem; }
+  /* Aufgeklapptes Menü: eigenes Feld in Tintenblau, rechtsbündig unter dem Knopf, über dem Inhalt */
+  .kopf.mit-js { position: relative; z-index: 20; }
+  .kopf.mit-js nav {
+    display: none; position: absolute; top: calc(100% + 3px); right: .75rem; min-width: 14rem;
+    flex-direction: column; gap: 0; padding: .4rem 0; text-align: right;
+    background: var(--text); border-radius: 0 0 var(--radius) var(--radius); box-shadow: 0 12px 30px rgba(31,42,68,.3);
+  }
   .kopf.mit-js.offen nav { display: flex; }
-  .kopf.mit-js nav a { padding: .7rem .25rem; font-size: 1rem; }
+  .kopf.mit-js nav a { padding: .75rem 1.25rem; font-size: 1.05rem; color: var(--bg); border: 0; border-right: 3px solid transparent; }
+  .kopf.mit-js nav a:hover { background: rgba(255,255,255,.08); border-right-color: transparent; }
+  .kopf.mit-js nav a[aria-current="page"] { color: #fff; font-weight: 600; border-right-color: var(--akzent); }
+  .kopf.mit-js nav a + a { border-top: 1px solid rgba(255,255,255,.12); }
   .person img { width: 5.5rem; margin-right: 1rem; }
   /* Hochkant auf dem Handy: Breite möglichst ausnutzen */
   .container { padding: 0 .75rem; }
