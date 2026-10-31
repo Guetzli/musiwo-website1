@@ -181,5 +181,9 @@ main > .container { padding-bottom: 4rem; }
   .kopf.mit-js.offen nav { display: flex; }
   .kopf.mit-js nav a { padding: .7rem .25rem; font-size: 1rem; }
   .person img { width: 5.5rem; margin-right: 1rem; }
+  /* Hochkant auf dem Handy: Breite möglichst ausnutzen */
+  .container { padding: 0 .75rem; }
+  .person { padding: 1rem .9rem; }
+  .formular fieldset { padding-left: .9rem; padding-right: .9rem; }
   .felder.zwei { grid-template-columns: 1fr; }
 }
