@@ -49,7 +49,6 @@
 }
 .ticket::before { top: -.7rem; }
 .ticket::after { bottom: -.7rem; }
-.ticket-kopf { font-family: var(--schrift-titel); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.1rem; font-weight: 500; }
 .ticket dd { font-family: var(--schrift-titel); font-weight: 500; font-size: 1.2rem; }
 
 /* Abschnitte als Sätze */
